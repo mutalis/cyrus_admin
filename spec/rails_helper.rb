@@ -47,7 +47,8 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-  
+
+  # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md  
   config.include FactoryGirl::Syntax::Methods
   config.before(:suite) { FactoryGirl.reload }
 end
