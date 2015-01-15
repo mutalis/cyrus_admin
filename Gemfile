@@ -51,3 +51,7 @@ group :test do
 	gem 'poltergeist', '1.5.1'
 	gem 'capybara', '~> 2.4.4'
 end
+
+gem 'bootstrap-sass', '3.3.1'
+
+gem 'autoprefixer-rails', '4.0.2.2'
