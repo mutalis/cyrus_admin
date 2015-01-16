@@ -8,3 +8,6 @@
 // control the sequence of loads, especially getting Bootstrap loaded first.
 
 //The same for "require_self" in order to avoid loading any CSS and SCSS in this file.
+
+// Style fix to make a space between the top menu and the main content.
+@import 'stylefix-navbar-fixed-top';
