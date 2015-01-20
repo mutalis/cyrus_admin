@@ -18,19 +18,34 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Email Admin</a>
+        <%= link_to 'Email Admin', root_path, class: 'navbar-brand' %>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Domains</a></li>
-          <li><a href="#adddomain">Add Domain</a></li>
-          <li><a href="#adminusers">Admin Users</a></li>
+          <%= content_tag :li, :class => ("active" if current_page?(domains_path)) do
+            link_to 'Domains', domains_path
+          end %>
+          <%= content_tag :li, :class => ("active" if current_page?(new_domain_path)) do
+            link_to 'Add Domain', new_domain_path
+          end %>
+          <%= content_tag :li, :class => ("active" if current_page?(domains_path)) do
+            link_to 'Admin Users', domains_path
+          end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
   </nav>
 
   <div class="container">
+    <% color = 'alert-success' %>
+    <% flash.each do |name, message| %>
+      <% color = 'alert-danger' if name == :error %>
+      <%= content_tag :div, class: "alert #{color} alert-dismissible", role: 'alert' do %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= message %>
+      <% end %>
+    <% end %>
+      
     <%= yield %>
   </div> <!-- /container -->
 </body>
