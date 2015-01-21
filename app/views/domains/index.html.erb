@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <table class="table table-bordered table-hover table-striped">
   <thead>
@@ -13,9 +12,9 @@
       <tr>
         <td><%= domain.name %></td>
         <td><%= domain.quota %></td>
-        <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
-        <td><%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Emails', domain %></td>
+        <td><%= link_to 'Edit', edit_domain_path(domain), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Delete', domain, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Emails', emails_path, class: 'btn btn-default' %></td>
       </tr>
     <% end %>
   </tbody>
