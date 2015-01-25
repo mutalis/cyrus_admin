@@ -1,0 +1,22 @@
+<% if @email_saved %>
+	$('#newEmailModal').modal('toggle');
+	// $('<%= j render @email %>').prependTo('#emails').animate({
+	//  height: '+=100px',
+	// 	background: '#dff0d8'
+	//    }, 2000);
+	$('<%= j render @email %>').prependTo('#emails').css({"background": "#dff0d8"});
+
+	var $success_m;
+	$success_m = $('<div class="alert alert-success" role="alert">Email was successfully created.</div>');
+	$('#alert-messages').html($success_m);
+	$('.alert.alert-success').fadeOut(4000, function(){
+		$(this).remove();
+	});
+	$('#new_email')[0].reset();
+	$('#error_explanation').html('');	
+<% else %>
+	var $fail_m;
+// $fail_m = "<h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>"
+	$fail_m = '<ul><% @email.errors.full_messages.each do |message| %><li class="text-danger"><%= message %></li><% end %></ul>'
+	$('#error_explanation').html($fail_m);
+<% end %>

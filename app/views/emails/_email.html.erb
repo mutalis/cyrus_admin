@@ -1,0 +1,6 @@
+<tr>
+  <td><%= email.username %></td>
+  <td><%= email.quota %></td>
+  <td><%= link_to 'Delete', email, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+  <td><%= link_to 'Change Password', edit_email_path(email), class: 'btn btn-default' %></td>
+</tr>

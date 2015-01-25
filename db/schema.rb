@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(version: 20150116163526) do
   create_table "emails", force: :cascade do |t|
     t.string   "username"
     t.string   "quota"
-    t.string   "account_type"
     t.string   "password"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
