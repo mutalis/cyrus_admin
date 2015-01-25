@@ -18,6 +18,7 @@
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
+Capybara.default_wait_time = 10
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
