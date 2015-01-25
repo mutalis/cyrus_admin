@@ -37,15 +37,17 @@
   </nav>
 
   <div class="container">
-    <% color = 'alert-success' %>
-    <% flash.each do |name, message| %>
-      <% color = 'alert-danger' if name == :error %>
-      <%= content_tag :div, class: "alert #{color} alert-dismissible", role: 'alert' do %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%= message %>
+    <div id="alert-messages">
+      <% color = 'alert-success' %>
+      <% flash.each do |name, message| %>
+        <% color = 'alert-danger' if name == :error %>
+        <%= content_tag :div, class: "alert #{color} alert-dismissible", role: 'alert' do %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= message %>
+        <% end %>
       <% end %>
-    <% end %>
-      
+    </div>
+
     <%= yield %>
   </div> <!-- /container -->
 </body>
