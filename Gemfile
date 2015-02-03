@@ -43,21 +43,23 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-	gem 'rspec-rails', '~> 3.1'
-	gem 'factory_girl_rails', '~> 4.5.0'
+	gem 'rspec-rails', '3.1.0'
+	gem 'factory_girl_rails', '4.5.0'
 
-	gem 'spring-commands-rspec', '~> 1.0.4'
+	gem 'spring-commands-rspec', '1.0.4'
+	
+	gem 'faker', '1.4.3'
 end
 
 group :test do
 	gem 'poltergeist', '1.5.1'
-	gem 'capybara', '~> 2.4.4'
+	gem 'capybara', '2.4.4'
+	gem 'launchy', '2.4.3'
+	gem 'shoulda-matchers', '2.8.0', require: false
 end
 
 gem 'bootstrap-sass', '3.3.1'
 
 gem 'autoprefixer-rails', '4.0.2.2'
 
-gem 'faker', '1.4.3'
 
-gem 'launchy', '2.4.3'
