@@ -13,4 +13,6 @@ RSpec.describe Email, :type => :model do
 
   it { is_expected.to belong_to(:domain).inverse_of(:emails) }
   it { is_expected.to validate_presence_of :domain }
+  
+  it { is_expected.to have_db_index(:username) }
 end

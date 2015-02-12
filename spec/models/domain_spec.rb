@@ -17,5 +17,7 @@ RSpec.describe Domain, :type => :model do
   it { is_expected.to validate_numericality_of :quota }
 
   it { is_expected.to have_many(:emails).inverse_of(:domain) }
+
+  it { is_expected.to have_db_index(:name) }
   
 end
