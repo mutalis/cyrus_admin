@@ -4,5 +4,7 @@ require 'factory_girl_rails'
 #   FactoryGirl.create(:domain)
 # end
 
-FactoryGirl.create_list(:domain,10)
-FactoryGirl.create_list(:email,10)
+# FactoryGirl.create_list(:domain,10)
+# FactoryGirl.create_list(:email,10)
+
+FactoryGirl.create_list(:domain_with_emails, 10)
