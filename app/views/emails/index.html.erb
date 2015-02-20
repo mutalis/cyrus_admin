@@ -11,19 +11,21 @@
       </div>
       <div class="modal-body">
         <div id="error_explanation"></div>
-        <%= form_for(Email.new, remote: true) do |f| %>
-
+        <%= form_for([@domain, Email.new], remote: true) do |f| %>
           <div class="form-group">
-            <%= f.label :username %>
-            <%= f.text_field :username, class: 'form-control' %>
+            <div class="input-group">
+              <%= f.text_field :username, class: 'form-control', placeholder: 'email username', 'aria-describedby'.to_sym => 'email_addon' %>
+              <span class="input-group-addon" id="email_addon">@<%= @domain.name %></span>
+            </div>
           </div>
           <div class="form-group">
-            <%= f.label :quota %>
-            <%= f.text_field :quota, class: 'form-control' %>
+            <%= f.text_field :quota, class: 'form-control', placeholder: 'quota' %>
           </div>
             <div class="form-group">
-            <%= f.label :password %>
-            <%= f.text_field :password, class: 'form-control' %>
+            <%= f.password_field :password, size: 10, class: 'form-control', placeholder: 'password' %>
+          </div>
+            <div class="form-group">
+            <%= f.password_field :confirmation_password, size: 10, class: 'form-control', placeholder: 'confirm password' %>
           </div>
       </div>
       <div class="modal-footer">

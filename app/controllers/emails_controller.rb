@@ -1,38 +1,23 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: [:show, :edit, :update, :destroy]
+  before_action :set_email, only: [:update, :destroy]
   
   # GET /emails
-  # GET /emails.json
   def index
-    @emails = Email.all
+    @domain = Domain.find(params[:domain_id])
+    @emails = @domain.emails if @domain
   end
 
   # POST /emails
-  # POST /emails.json
   def create
     @email = Email.new(email_params)
+    @email.domain = Domain.find(params[:domain_id])
     @email_saved = @email.save
-    respond_to do |format|
-      if @email_saved
-        format.html { redirect_to emails_path, notice: 'Email was successfully created.' }
-        format.js
-        format.json { render :show, status: :created, location: @email }
-      else
-        format.html { render :new }
-        format.js
-        format.json { render json: @email.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /emails/1
-  # DELETE /emails/1.json
   def destroy
-    @email.destroy
-    respond_to do |format|
-      format.html { redirect_to emails_url, notice: 'Email was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @email_deleted = false
+    # @email_deleted = @email.destroy
   end
 
   private
