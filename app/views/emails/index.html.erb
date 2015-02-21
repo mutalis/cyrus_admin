@@ -14,8 +14,8 @@
         <%= form_for([@domain, Email.new], remote: true) do |f| %>
           <div class="form-group">
             <div class="input-group">
-              <%= f.text_field :username, class: 'form-control', placeholder: 'email username', 'aria-describedby'.to_sym => 'email_addon' %>
-              <span class="input-group-addon" id="email_addon">@<%= @domain.name %></span>
+              <%= f.text_field :username, class: 'form-control', placeholder: 'email username', 'aria-describedby'.to_sym => 'domain_addon' %>
+              <span class="input-group-addon" id="domain_addon">@<%= @domain.name %></span>
             </div>
           </div>
           <div class="form-group">

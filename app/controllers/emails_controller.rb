@@ -16,8 +16,19 @@ class EmailsController < ApplicationController
 
   # DELETE /emails/1
   def destroy
-    @email_deleted = false
-    # @email_deleted = @email.destroy
+    @email_deleted = @email.destroy
+  end
+
+  # Checks if an email address is available.
+  # If it's available the method returns true in Json format.
+  def check_email
+    email_address = params[:email][:username] + params[:domain]
+    email_available = true
+    email_available = false if Email.find_by username: email_address
+
+    respond_to do |format|
+      format.json { render :json => email_available }
+    end
   end
 
   private

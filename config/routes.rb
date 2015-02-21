@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   resources :domains do
-    resources :emails, shallow: true
+    resources :emails, only: [:index, :create]
   end
+  
+  resources :emails, only: [:update, :destroy]
+  
+  get 'check_email', to: 'emails#check_email'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
