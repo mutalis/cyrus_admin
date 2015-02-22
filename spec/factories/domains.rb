@@ -2,7 +2,7 @@ FactoryGirl.define do
    # domain factory without associated emails
   factory :domain do
     name {Faker::Internet.domain_name}
-    quota {(rand*1000).to_i}
+    quota {(rand*10+1).to_i}
 
     # domain_with_posts will create email data after the domain has been created
     factory :domain_with_emails do

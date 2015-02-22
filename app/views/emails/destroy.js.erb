@@ -2,6 +2,12 @@
 	$('#<%= @email.id %>').fadeOut(1000, function(){
 		$(this).remove();
 	});
+	var $success_m;
+	$success_m = $('<div class="alert alert-success" role="alert">Email was successfully deleted.</div>');
+	$('#alert-messages').html($success_m);
+	$('.alert.alert-success').fadeOut(4000, function(){
+		$(this).remove();
+	});
 <% else %>
 	var $fail_m;
 	$fail_m = $('<div class="alert alert-danger" role="alert">It was not possible to delete the email account.</div>');
