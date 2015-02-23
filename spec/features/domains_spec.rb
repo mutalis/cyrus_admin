@@ -50,6 +50,5 @@ feature 'Domains main page' do
     first('.btn.btn-default', text: 'Emails').click
     expect(page).to have_selector('th', text: 'Username', visible: true)
     expect(page).to have_selector('th', text: 'Quota Used', visible: true)
-    expect(page).to have_link('Change Password')
   end
 end
