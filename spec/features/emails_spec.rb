@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Emails administration' do
 
   background do
-    FactoryGirl.create_list(:email,10)
+    # FactoryGirl.create_list(:email,10)
   end
   
   scenario 'delete an email succesfully', js: true do

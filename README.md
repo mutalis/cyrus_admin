@@ -1,10 +1,13 @@
-# Cyrus Web Admin App [![Build Status](https://travis-ci.org/mutalis/cyrus_admin.svg?branch=master)](https://travis-ci.org/mutalis/cyrus_admin) [![Code Climate](https://codeclimate.com/github/mutalis/cyrus_admin/badges/gpa.svg)](https://codeclimate.com/github/mutalis/cyrus_admin) [![Test Coverage](https://codeclimate.com/github/mutalis/cyrus_admin/badges/coverage.svg)](https://codeclimate.com/github/mutalis/cyrus_admin) [![Dependency Status](https://gemnasium.com/mutalis/cyrus_admin.svg)](https://gemnasium.com/mutalis/cyrus_admin)
+# Cyrus Web Admin App
+[![Build Status](https://travis-ci.org/mutalis/cyrus_admin.svg?branch=master)](https://travis-ci.org/mutalis/cyrus_admin) [![Code Climate](https://codeclimate.com/github/mutalis/cyrus_admin/badges/gpa.svg)](https://codeclimate.com/github/mutalis/cyrus_admin) [![Test Coverage](https://codeclimate.com/github/mutalis/cyrus_admin/badges/coverage.svg)](https://codeclimate.com/github/mutalis/cyrus_admin) [![Dependency Status](https://gemnasium.com/mutalis/cyrus_admin.svg)](https://gemnasium.com/mutalis/cyrus_admin)
 
 Cyrus is a highly scalable enterprise mail system designed for use in enterprise environments of various sizes using standards based technologies. Cyrus technologies scale from independent use in email departments to a system centrally managed in a large enterprise.
 
 [https://cyrusimap.org](https://cyrusimap.org/)
 
 Cyrus Admin is a Rails web interface that allows you to perform the administrative tasks required to maintain the Cyrus email system.
+
+### Dependencies
 
 * Ruby 2.0.0
 
@@ -17,7 +20,9 @@ Cyrus Admin is a Rails web interface that allows you to perform the administrati
 ## Screenshots
 
 ![Domain list](docs/domains-list.png)
+***
 ![Email list](docs/email-list.png)
+***
 ![New email account](docs/new-email-account.png)
 
 ## License
