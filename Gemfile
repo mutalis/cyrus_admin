@@ -19,8 +19,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -45,9 +44,9 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '1.3.2'
 
-	gem 'rspec-rails', '3.1.0'
+	gem 'rspec-rails', '3.2.1'
 	gem 'factory_girl_rails', '4.5.0'
 
 	gem 'spring-commands-rspec', '1.0.4'
@@ -56,15 +55,15 @@ group :development, :test do
 end
 
 group :test do
-	gem 'poltergeist', '1.5.1'
+	gem 'poltergeist', '1.6.0'
 	gem 'capybara', '2.4.4'
 	gem 'launchy', '2.4.3'
 	gem 'shoulda-matchers', '2.8.0', require: false
 end
 
-gem 'bootstrap-sass', '3.3.1'
+gem 'bootstrap-sass', '3.3.3'
 
-gem 'autoprefixer-rails', '4.0.2.2'
+gem 'autoprefixer-rails', '5.1.7'
 
 gem 'jquery-validation-rails', '1.13.1'
 
