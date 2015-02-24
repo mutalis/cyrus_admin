@@ -14,6 +14,12 @@ Cyrus Admin is a Rails web interface that allows you to perform the administrati
 
 * Twitter Bootstrap 3.x
 
+## Screenshots
+
+![Domain list](docs/domains-list.png)
+![Email list](docs/email-list.png)
+![New email account](docs/new-email-account.png)
+
 ## License
 
 Source code released under the [GNU General Public License](http://www.gnu.org/licenses/gpl-3.0.html) as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. Docs released under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
