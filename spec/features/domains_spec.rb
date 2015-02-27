@@ -48,7 +48,7 @@ feature 'Domains main page' do
     FactoryGirl.create_list(:email,10)
     visit domains_path
     first('.btn.btn-default', text: 'Emails').click
-    expect(page).to have_selector('th', text: 'Username', visible: true)
+    expect(page).to have_selector('th', text: 'Email', visible: true)
     expect(page).to have_selector('th', text: 'Quota Used', visible: true)
   end
 end
