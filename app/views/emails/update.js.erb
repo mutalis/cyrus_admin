@@ -1,0 +1,12 @@
+<% if @email_updated %>
+	var $success_m;
+	$success_m = $('<div class="alert alert-success" role="alert"><%= @email.username %> quota updated to <%= @email.quota %> GB.</div>');
+	$('#alert-messages').html($success_m);
+	$('.alert.alert-success').fadeOut(9000);
+<% else %>
+	var $fail_m;
+	$fail_m = '<div class="alert alert-danger" role="alert"><ul><% @email.errors.full_messages.each do |message| %><li class="text-danger"><%= message %></li><% end %></ul></div>'
+	$('#alert-messages').html($fail_m);
+	$('.alert.alert-danger').fadeOut(9000);
+ 	$("#email_quota_<%= @email.id %>").val("<%= @original_quota %>")
+<% end %>

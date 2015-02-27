@@ -48,4 +48,20 @@ feature 'Emails administration' do
     expect(find('#email_password-error')).to have_content "This field is required."
     expect(find('#email_confirmation_password-error')).to have_content "This field is required."
   end
+  
+  scenario 'update the email quota succesfully', js: true do
+    email_instance = FactoryGirl.create(:email)
+    visit domain_emails_path(email_instance.domain)
+    fill_in 'email[quota]', with: '20'
+    click_button 'Update quota'
+    expect(page).to have_content 'quota updated to'
+  end
+  
+  scenario 'dont update the email quota when the input value is not a number', js: true do
+    email_instance = FactoryGirl.create(:email)
+    visit domain_emails_path(email_instance.domain)
+    fill_in 'email[quota]', with: 'not a number'
+    click_button 'Update quota'
+    expect(page).to have_content 'is not a number'
+  end
 end

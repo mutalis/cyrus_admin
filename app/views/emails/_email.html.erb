@@ -1,6 +1,16 @@
 <tr id="<%= email.id %>">
   <td><%= email.username %></td>
-  <td><%= email.quota %></td>
+  <td>
+    <%= form_for(email, remote: true, html: {class: 'form-inline'}) do |f| %>
+      <div class="form-group">
+        <div class="input-group">
+          <%= f.text_field :quota, class: 'form-control', placeholder: email.quota, id: "email_quota_#{email.id}" %>
+          <div class="input-group-addon">GB</div>
+        </div>
+      </div>
+      <%= f.button 'Update quota', class: 'btn btn-default' %>
+    <% end %>
+  </td>
   <td><%= link_to 'Delete', email, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', remote: true %></td>
   <td><%= link_to 'Change Password', '', class: 'btn btn-default' %></td>
 </tr>

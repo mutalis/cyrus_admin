@@ -20,6 +20,12 @@ class EmailsController < ApplicationController
     end
   end
 
+  # PATCH/PUT /emails/1
+  def update
+    @original_quota = @email.quota
+    @email_updated = @email.update(email_params)
+  end
+
   # DELETE /emails/1
   def destroy
     @email_deleted = @email.destroy
