@@ -2,7 +2,7 @@ class Email < ActiveRecord::Base
   belongs_to :domain, inverse_of: :emails
   attr_accessor :confirmation_password
   
-  before_validation :set_email_address, on: :create
+  # before_validation :set_email_address, on: :create
   
   validates :password, presence: true, length: { minimum: 8 }
   validates :username, presence: true, length: { maximum: 104 },
@@ -15,9 +15,9 @@ class Email < ActiveRecord::Base
   
   default_scope { order(username: :asc) }
 
-  protected
-  
-  def set_email_address
-    self.username += '@' + domain.name
-  end
+  # protected
+  # 
+  # def set_email_address
+  #   self.username += '@' + domain.name
+  # end
 end

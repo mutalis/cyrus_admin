@@ -8,7 +8,7 @@ RSpec.describe Email, :type => :model do
 
   it { is_expected.to validate_presence_of :username }
 
-  # it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
+  it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
 
   it { expect(email.username).to match(/\A[a-zA-Z0-9]+([_\.\-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,13}\z/) }
 

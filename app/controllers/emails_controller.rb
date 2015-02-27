@@ -10,8 +10,14 @@ class EmailsController < ApplicationController
   # POST /emails
   def create
     @email = Email.new(email_params)
-    @email.domain = Domain.find(params[:domain_id])
-    @email_saved = @email.save
+    domain = Domain.find(params[:domain_id])
+    if domain
+      @email.domain = domain
+      @email.username = params[:email][:username] + '@' + domain.name
+      @email_saved = @email.save
+    else
+      @email_saved = false
+    end
   end
 
   # DELETE /emails/1
@@ -39,6 +45,6 @@ class EmailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def email_params
-      params.require(:email).permit(:username, :quota, :password)
+      params.require(:email).permit(:quota, :password)
     end
 end
