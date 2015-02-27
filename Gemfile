@@ -59,6 +59,7 @@ group :test do
 	gem 'capybara', '2.4.4'
 	gem 'launchy', '2.4.3'
 	gem 'shoulda-matchers', '2.8.0', require: false
+	gem 'database_cleaner', '1.4.0'
 end
 
 gem 'bootstrap-sass', '3.3.3'
