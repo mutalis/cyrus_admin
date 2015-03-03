@@ -1,12 +1,21 @@
 <% if @email_updated %>
 	var $success_m;
-	$success_m = $('<div class="alert alert-success" role="alert"><%= @email.username %> quota updated to <%= @email.quota %> GB.</div>');
+	<% if @original_quota %>
+		$success_m = $('<div class="alert alert-success" role="alert"><%= @email.username %> quota updated to <%= @email.quota %> GB.</div>');
+	<% else %>
+		$('#changePassModal').modal('toggle');
+		$success_m = $('<div class="alert alert-success" role="alert">The <%= @email.username %> password was changed.</div>');
+	<% end %>
 	$('#alert-messages').html($success_m);
 	$('.alert.alert-success').fadeOut(9000);
 <% else %>
+	<% if @original_quota %>
+	 	$("#email_quota_<%= @email.id %>").val("<%= @original_quota %>")
+	<% else %>
+		$('#changePassModal').modal('toggle');
+	<% end %>
 	var $fail_m;
 	$fail_m = '<div class="alert alert-danger" role="alert"><ul><% @email.errors.full_messages.each do |message| %><li class="text-danger"><%= message %></li><% end %></ul></div>'
 	$('#alert-messages').html($fail_m);
 	$('.alert.alert-danger').fadeOut(9000);
- 	$("#email_quota_<%= @email.id %>").val("<%= @original_quota %>")
 <% end %>

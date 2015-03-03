@@ -12,5 +12,5 @@
     <% end %>
   </td>
   <td><%= link_to 'Delete', email, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', remote: true %></td>
-  <td><%= link_to 'Change Password', '', class: 'btn btn-default' %></td>
+  <td><%= link_to 'Change password', edit_email_path(email), class: 'btn btn-default', remote: true %></td>
 </tr>

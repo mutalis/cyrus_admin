@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :emails, only: [:index, :create]
   end
   
-  resources :emails, only: [:update, :destroy]
+  resources :emails, only: [:edit, :update, :destroy]
   
   get 'check_email', to: 'emails#check_email'
 

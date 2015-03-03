@@ -1,0 +1,10 @@
+$('#changePassModal').modal('show');
+$('#changePassModalLabel').html('Change password for <i><%= @email.username %></i>');
+$('#upasform').html("<%= j render 'form' %>");
+
+$("#edit_email_<%= @email.id %>").validate({
+ 	rules: {
+ 		"email[password]": { required: true, minlength: 8 },
+ 		"email[confirmation_password]": { required: true, minlength: 8, equalTo: "#email_password_<%= @email.id %>" }
+ 	}
+});

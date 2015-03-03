@@ -64,4 +64,24 @@ feature 'Emails administration' do
     click_button 'Update quota'
     expect(page).to have_content 'is not a number'
   end
+
+  scenario 'change the email password succesfully', js: true do
+    email_instance = FactoryGirl.create(:email)
+    visit domain_emails_path(email_instance.domain)
+    click_link('Change password')
+    fill_in 'email[password]', with: '12345678'
+    fill_in 'email[confirmation_password]', with: '12345678'
+    click_button 'Change password'
+    expect(page).to have_content 'password was changed'
+  end
+
+  scenario 'dont change the email password when the password confirmation is invalid', js: true do
+    email_instance = FactoryGirl.create(:email)
+    visit domain_emails_path(email_instance.domain)
+    click_link('Change password')
+    fill_in 'email[password]', with: '12345678'
+    fill_in 'email[confirmation_password]', with: 'figdiojlkl'
+    click_button 'Change password'
+    expect(page).to have_content 'Please enter the same value again'
+  end
 end

@@ -1,10 +1,14 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: [:update, :destroy]
+  before_action :set_email, only: [:edit, :update, :destroy]
   
   # GET /emails
   def index
     @domain = Domain.find(params[:domain_id])
     @emails = @domain.emails if @domain
+  end
+
+  # GET /emails/1
+  def edit
   end
 
   # POST /emails
@@ -22,7 +26,7 @@ class EmailsController < ApplicationController
 
   # PATCH/PUT /emails/1
   def update
-    @original_quota = @email.quota
+    @original_quota = @email.quota if params[:email][:quota].present?
     @email_updated = @email.update(email_params)
   end
 
