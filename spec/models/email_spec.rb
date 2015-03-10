@@ -4,7 +4,7 @@ RSpec.describe Email, :type => :model do
 
   subject(:email) { FactoryGirl.create(:email) }
 
-  it { is_expected.to validate_numericality_of :quota }
+  it { is_expected.to validate_numericality_of(:quota).only_integer.is_greater_than_or_equal_to(1) }
 
   it { is_expected.to validate_presence_of :username }
 

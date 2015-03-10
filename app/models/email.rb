@@ -10,7 +10,11 @@ class Email < ActiveRecord::Base
 
   validates_format_of :username, with: ->(email) { /\A[a-zA-Z0-9]+([_\.\-]?[a-zA-Z0-9]+)*@#{Regexp.escape(email.domain.name)}\z/ }
 
-  validates :quota, numericality: { only_integer: true }
+  validates :quota, numericality: { only_integer: true, greater_than_or_equal_to: 1,
+            less_than_or_equal_to: ->(email) {email.domain.avail_quota.to_i + Email.find(email.id).quota.to_i} }, on: :update
+
+  validates :quota, numericality: { only_integer: true, greater_than_or_equal_to: 1,
+            less_than_or_equal_to: ->(email) {email.domain.avail_quota} }, on: :create
 
   validates :domain, presence: true
   
