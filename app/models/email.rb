@@ -6,8 +6,9 @@ class Email < ActiveRecord::Base
   
   validates :password, presence: true, length: { minimum: 8 }
   validates :username, presence: true, length: { maximum: 104 },
-            format: { with: /\A[a-zA-Z0-9]+([_\.\-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,13}\z/ },
-            uniqueness: { case_sensitive: false }
+             uniqueness: { case_sensitive: false }
+
+  validates_format_of :username, with: ->(email) { /\A[a-zA-Z0-9]+([_\.\-]?[a-zA-Z0-9]+)*@#{Regexp.escape(email.domain.name)}\z/ }
 
   validates :quota, numericality: { only_integer: true }
 
