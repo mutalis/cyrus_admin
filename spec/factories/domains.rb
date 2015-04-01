@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: domains
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  quota      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_domains_on_name  (name) UNIQUE
+#
+
 FactoryGirl.define do
    # domain factory without associated emails
   factory :domain do
