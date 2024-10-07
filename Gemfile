@@ -64,9 +64,9 @@ group :test do
 	gem 'codeclimate-test-reporter', require: nil
 end
 
-gem 'bootstrap-sass', '3.3.3'
+gem 'bootstrap-sass', '3.4.1'
 
-gem 'autoprefixer-rails', '5.1.7'
+gem 'autoprefixer-rails', '9.8.6'
 
 gem 'jquery-validation-rails', '1.13.1'
 
